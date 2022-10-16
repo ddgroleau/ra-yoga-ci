@@ -18,7 +18,7 @@ services:
       WORDPRESS_DB_NAME: ${WP_DB}
 
   db:
-    container_name: db-mysql-root-to-rise
+    container_name: db-mysql-ra-yoga
     image: mysql:8.0
     volumes:
       - db_data:/var/lib/mysql
@@ -30,7 +30,7 @@ services:
       MYSQL_PASSWORD: ${WP_DB_PASS}
 
   phpmyadmin:
-    container_name: php-myadmin-root-to-rise
+    container_name: php-myadmin-ra-yoga
     image: phpmyadmin/phpmyadmin
     depends_on:
       - db

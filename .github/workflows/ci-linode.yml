@@ -43,13 +43,13 @@ jobs:
             then echo "No container found. Starting wordpress-ra-yoga container..."; \
             else docker stop wordpress-ra-yoga && docker rm wordpress-ra-yoga; \
             fi \
-            && if [[ -z $(docker container ls -a | grep "db-mysql-root-to-rise") ]]; \
-            then echo "No container found. Starting db-mysql-root-to-rise container..."; \
-            else docker stop db-mysql-root-to-rise && docker rm db-mysql-root-to-rise; \
+            && if [[ -z $(docker container ls -a | grep "db-mysql-ra-yoga") ]]; \
+            then echo "No container found. Starting db-mysql-ra-yoga container..."; \
+            else docker stop db-mysql-ra-yoga && docker rm db-mysql-ra-yoga; \
             fi \
-            && if [[ -z $(docker container ls -a | grep "php-myadmin-root-to-rise") ]]; \
-            then echo "No container found. Starting php-myadmin-root-to-rise container..."; \
-            else docker stop php-myadmin-root-to-rise && docker rm php-myadmin-root-to-rise; \
+            && if [[ -z $(docker container ls -a | grep "php-myadmin-ra-yoga") ]]; \
+            then echo "No container found. Starting php-myadmin-ra-yoga container..."; \
+            else docker stop php-myadmin-ra-yoga && docker rm php-myadmin-ra-yoga; \
             fi \
             && MYSQL_PORT="${envVars[0]}" \
             WP_PORT="${envVars[1]}" \
