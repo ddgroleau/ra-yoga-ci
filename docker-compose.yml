@@ -29,6 +29,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${WP_DB_PASS}
       VIRTUAL_PORT: ${MYSQL_PORT}
+      MYSQL_TCP_PORT: ${MYSQL_PORT}
     expose:
       - ${MYSQL_PORT}
 
