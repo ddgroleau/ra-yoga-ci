@@ -5,19 +5,19 @@ services:
     container_name: wordpress-ra-yoga
     image: wordpress:latest
     depends_on:
-      - db
+      - mysql
     volumes:
       - wordpress_files:/var/www/html
     ports:
       - "${WP_PORT}:80"   
     restart: always
     environment:
-      WORDPRESS_DB_HOST: 'db:${MYSQL_PORT}'
+      WORDPRESS_DB_HOST: 'mysql:${MYSQL_PORT}'
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${WP_DB_PASS}
       WORDPRESS_DB_NAME: ${WP_DB}     
 
-  db:
+  mysql:
     container_name: db-mysql-ra-yoga
     image: mysql:8.0
     volumes:
@@ -28,14 +28,15 @@ services:
       MYSQL_DATABASE: ${WP_DB}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${WP_DB_PASS}
-    ports:
-      - ${MYSQL_PORT}:3306
+      VIRTUAL_PORT: ${MYSQL_PORT}
+    expose:
+      - ${MYSQL_PORT}
 
   phpmyadmin:
     container_name: php-myadmin-ra-yoga
     image: phpmyadmin/phpmyadmin
     depends_on:
-      - db
+      - mysql
     restart: always
     ports:
       - '${PHPMYADMIN_PORT}:80'
