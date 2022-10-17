@@ -28,7 +28,6 @@ services:
       MYSQL_DATABASE: ${WP_DB}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${WP_DB_PASS}
-      MYSQL_TCP_PORT: ${MYSQL_PORT}
     ports:
       - ${MYSQL_PORT}:3306
 
