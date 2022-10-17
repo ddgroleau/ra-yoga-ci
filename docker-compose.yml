@@ -29,6 +29,8 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${WP_DB_PASS}
       MYSQL_TCP_PORT: ${MYSQL_PORT}
+    ports:
+      - ${MYSQL_PORT}:${MYSQL_PORT}
 
   phpmyadmin:
     container_name: php-myadmin-ra-yoga
