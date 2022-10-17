@@ -12,7 +12,7 @@ services:
       - "${WP_PORT}:80"   
     restart: always
     environment:
-      WORDPRESS_DB_HOST: '0.0.0.0:${MYSQL_PORT}'
+      WORDPRESS_DB_HOST: 'mysql:3306'
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${WP_DB_PASS}
       WORDPRESS_DB_NAME: ${WP_DB}     
