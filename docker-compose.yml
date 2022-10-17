@@ -7,7 +7,7 @@ services:
     depends_on:
       - mysql
     volumes:
-      - wordpress_files:/var/www/html
+      - wordpress-ra-yoga:/var/www/html
     ports:
       - "${WP_PORT}:80"   
     restart: always
@@ -21,7 +21,7 @@ services:
     container_name: db-mysql-ra-yoga
     image: mysql:8.0
     volumes:
-      - db_data:/var/lib/mysql
+      - db-mysql-ra-yoga:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${ROOT_DB_PASS}
@@ -45,5 +45,5 @@ services:
       MYSQL_ROOT_PASSWORD: ${ROOT_DB_PASS}
 
 volumes:
-    wordpress_files:
-    db_data:
+    wordpress-ra-yoga:
+    db-mysql-ra-yoga:
