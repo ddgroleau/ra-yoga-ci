@@ -30,7 +30,7 @@ services:
       MYSQL_PASSWORD: ${WP_DB_PASS}
       MYSQL_TCP_PORT: ${MYSQL_PORT}
     ports:
-      - ${MYSQL_PORT}:${MYSQL_PORT}
+      - ${MYSQL_PORT}:3306
 
   phpmyadmin:
     container_name: php-myadmin-ra-yoga
